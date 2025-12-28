@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Year End Pause</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+
+body{
+  margin:0;
+  background:#c9f2e6;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.book{
+  width:90%;
+  max-width:420px;
+  height:85vh;
+  background:#eafff8;
+  border-radius:22px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+  position:relative;
+  overflow:hidden;
+}
+
+.page{
+  position:absolute;
+  inset:0;
+  padding:28px;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  animation:flip .5s ease;
+}
+
+.page.active{display:flex}
+
+@keyframes flip{
+  from{opacity:0;transform:translateX(40px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+h1,h2{color:#155f55;margin-bottom:18px}
+p{color:#2f6f66;line-height:1.6}
+
+input,textarea{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  margin-top:10px;
+  font-size:16px;
+}
+
+textarea{resize:none;height:90px}
+
+button{
+  margin-top:24px;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  background:#2bbfa7;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{background:#1fa08c}
+
+/* Confetti */
+.confetti{
+  position:absolute;
+  width:8px;
+  height:14px;
+  background:red;
+  top:-20px;
+  animation:fall linear infinite;
+  opacity:.8;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* Fairy lights */
+.lights{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+.light{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:#fff7b2;
+  border-radius:50%;
+  box-shadow:0 0 10px #fff7b2;
+  animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.4}
+  to{opacity:1}
+}
+</style>
+</head>
+
+<body>
+<div class="book">
+
+<!-- Page 1 -->
+<div class="page active">
+  <h1>2025</h1>
+  <p style="font-size:18px"><strong>“No pressure. This is not being graded.”</strong></p>
+  <button onclick="nextPage()">Continue →</button>
+</div>
+
+<!-- Q1 -->
+<div class="page">
+  <h2>Q1</h2>
+  <p>Something for 2025?</p>
+  <textarea placeholder="Dream, rant, joke — anything"></textarea>
+  <button onclick="nextPage()">Next →</button>
+</div>
+
+<!-- Q2
